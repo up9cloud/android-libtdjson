@@ -1,0 +1,26 @@
+language: cpp
+compiler:
+- clang
+os:
+- linux
+services:
+- docker
+script:
+- docker run --rm -v `pwd`:/tmp/libtdjson -w /tmp/libtdjson saschpe/android-ndk ./build.sh
+branches:
+  only:
+  - master
+  - main
+before_deploy:
+- tar -czvf libs.tar.gz libs
+- tar -czvf jniLibs.tar.gz jniLibs
+deploy:
+  provider: releases
+  api_key:
+    secure: JWFMKnJU4v++LNSmQqaXKUTsUlAg9VvnPRMjgU9vxyj6LRNJf/uNq5T5W99JDqW/GCiecqM8d4lyMb3zBxt5g7MdsB0aU2Ix+/mpsnNxlkSIbCj3DGc9A0OLcj/xXGAWtu9qW3vg9Sz/2jKwL5Iywxj5uUU+Y5MabUFqxEJjkoxI3uzErscBpQt+HqjXEUVCNenv9IcIOGgKwQ/ps+AqnpD5idixrkk+JESnlvrklCQIYF1QgQK7kmYaHOQU3c1fpDdq9wEMQcVmPK+gXTSGlcGUVUdt9Pm8hT+Q4AworDNhY3pus59Yu7WcPAQ3E0UrkVEtmEc4QOWXotRCjMQiy09yWsJvl2d63K5SpXIu5Si7/fF3h/7IvfMRBOxV7s/4gNyBMG6oAgCl6TrnHurJL/OgbDP5pVXXMUxpPA8R6kScm+7zLYdBGfCTaCrwVJrCPmd1y8CMTtcKNtspBD/VjB0ahva7kvVvPAmPPhd+o5W6BG0r/W+4jG1tiKqIosAY2mdIjGKacPPEyQ1euC7BrJNFzIDGS5WGelSZglfLevqfk/PzlLiZCpROfybuuYRZgm59e4vKtJhNmgeLIyuv3k5g74wGhCX90XbIAgJaa8Nb3yIO+WQsJxps9zmnqC/9uWqowvr/5Xv7Thth7/75Tfc0G+YV1KISPH/QG5yoW1w=
+  file:
+    - libs.tar.gz
+    - jniLibs.tar.gz
+  skip_cleanup: true
+  on:
+    tags: true
