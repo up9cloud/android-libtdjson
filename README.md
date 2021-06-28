@@ -12,3 +12,10 @@ TODO
 ## Example
 
 TODO
+
+## Dev
+
+```bash
+# build, see .travis.yml
+docker run --rm -v `pwd`:/app sstc/android-ndk ./build.sh
+```

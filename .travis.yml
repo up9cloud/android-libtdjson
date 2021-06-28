@@ -6,7 +6,7 @@ os:
 services:
 - docker
 script:
-- docker run --rm -v `pwd`:/tmp/libtdjson -w /tmp/libtdjson saschpe/android-ndk ./build.sh
+- docker run --rm -v `pwd`:/app sstc/android-ndk ./build.sh
 branches:
   only:
   - master

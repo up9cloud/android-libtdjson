@@ -1,12 +1,10 @@
 #!/bin/bash -e
 
 __DIR__="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-if [ -z "$ANDROID_SDK_ROOT" ]; then
-	>&2 echo "ANDROID_SDK_ROOT not set"
+if [ -z "$ANDROID_NDK_HOME" ]; then
+	>&2 echo "ANDROID_NDK_HOME not set"
 	exit 2
 fi
-NDK_VERSION=22.1.7171670
-export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk/$NDK_VERSION"
 
 if [ -z "$1" ]; then
 	exit 2
