@@ -24,5 +24,6 @@ if (CMAKE_CROSSCOMPILING)
 
   target_link_libraries(tdjson_jni PRIVATE Td::TdJsonStatic tdcore)
   add_custom_command(TARGET tdjson_jni POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${root_DIR}/jniLibs/${ANDROID_ABI}/lib"
     COMMAND ${CMAKE_STRIP} --strip-sections --strip-unneeded $<TARGET_FILE:tdjson_jni> -o "${root_DIR}/jniLibs/${ANDROID_ABI}/lib/libtdjson.so")
 endif()

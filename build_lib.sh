@@ -21,4 +21,5 @@ cmake $__DIR__/td -DCMAKE_TOOLCHAIN_FILE=${ANDROID_NDK_HOME}/build/cmake/android
 	-DOPENSSL_LIBRARIES="$OPENSSL_SSL_LIBRARY;$OPENSSL_CRYPTO_LIBRARY" \
 	|| exit 1
 cmake --build . || exit 1
+mkdir -p $__DIR__/libs/$abi
 $__DIR__/strip.sh $__DIR__/build/$abi/libtdjson.so $__DIR__/libs/$abi/libtdjson.so
