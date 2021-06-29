@@ -2,13 +2,13 @@
 
 __DIR__="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
+# Idea from https://github.com/tdlib/td/issues/77#issuecomment-640719893
 cd $__DIR__
 ./prepare.sh
 
-# Idea from https://github.com/tdlib/td/issues/77#issuecomment-640719893
 # ABIs="x86 x86_64 armeabi-v7a arm64-v8a"
 ABIs="x86_64 armeabi-v7a arm64-v8a"
-# x86 would cause error:
+# FIXME: x86 would cause error:
 # ld: error: undefined symbol: __memcpy_chk
 # >>> referenced by string.h:48 (bionic/libc/include/bits/fortify/string.h:48)
 # >>>               crc_folding.o:(crc_fold_copy) in archive /opt/android-sdk-linux/ndk/22.1.7171670/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/libz.a

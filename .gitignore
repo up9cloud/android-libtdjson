@@ -1,5 +1,6 @@
 /build/
-/libs/
+/build-jni/
 /jniLibs/
+/libs/
 /openssl/
 /td/

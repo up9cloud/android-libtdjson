@@ -20,10 +20,14 @@ if (CMAKE_CROSSCOMPILING)
   string(APPEND CMAKE_SHARED_LINKER_FLAGS " -Wl,--gc-sections -Wl,--exclude-libs,ALL")
 
   add_library(tdjson_jni SHARED tdjson.cpp)
-  set_target_properties(tdjson_jni PROPERTIES OUTPUT_NAME tdjson)
-
   target_link_libraries(tdjson_jni PRIVATE Td::TdJsonStatic tdcore)
+  set_target_properties(tdjson_jni PROPERTIES
+    OUTPUT_NAME tdjson
+    # LIBRARY_OUTPUT_DIRECTORY ${root_DIR}/jniLibs/${ANDROID_ABI}
+  )
   add_custom_command(TARGET tdjson_jni POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E make_directory "${root_DIR}/jniLibs/${ANDROID_ABI}/lib"
-    COMMAND ${CMAKE_STRIP} --strip-sections --strip-unneeded $<TARGET_FILE:tdjson_jni> -o "${root_DIR}/jniLibs/${ANDROID_ABI}/lib/libtdjson.so")
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${root_DIR}/jniLibs/${ANDROID_ABI}"
+    # COMMAND ${CMAKE_COMMAND} -E rename $<TARGET_FILE:tdjson_jni> $<TARGET_FILE:tdjson_jni>.debug
+    # Should same as ./strip.sh options
+    COMMAND ${CMAKE_STRIP} --strip-debug --strip-unneeded $<TARGET_FILE:tdjson_jni> -o "${root_DIR}/jniLibs/${ANDROID_ABI}/libtdjson.so")
 endif()

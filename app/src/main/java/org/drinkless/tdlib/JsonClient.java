@@ -12,7 +12,7 @@ package org.drinkless.tdlib;
 public final class JsonClient {
     static {
         try {
-            System.loadLibrary("libtdjson");
+            System.loadLibrary("tdjson");
         } catch (UnsatisfiedLinkError e) {
             e.printStackTrace();
         }

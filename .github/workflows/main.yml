@@ -1,0 +1,23 @@
+name: Releases
+
+on: 
+  push:
+    tags:
+    - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: sstc/android-ndk
+    steps:
+      - uses: actions/checkout@v1
+      - run: ./build.sh
+      - run: |
+          tar -czvf libs.tar.gz libs
+          tar -czvf jniLibs.tar.gz jniLibs
+      - uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          artifacts: "libs.tar.gz,jniLibs.tar.gz"
+          token: ${{ secrets.GITHUB_TOKEN }}
