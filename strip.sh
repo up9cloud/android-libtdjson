@@ -29,8 +29,6 @@ case `uname -s` in
 	;;
 esac
 
-# Should same as ./app/src/main/cpp/CMakeLists.txt
-# FIXME: DO NOT use option "--strip-sections", it will cause error:
-# E/linker  ( 8837): "/data/app/~~DmkN-Giykw7LVUfrR5b7fg==/org.naji.td.tdlib.tdlib_example-YJzag0gDC1cnMn_ML_iILQ==/lib/x86_64/libtdjson.so" has unsupported e_shentsize: 0x0 (expected 0x40)
+# Options must be same as ./app/src/main/cpp/CMakeLists.txt
 strip_options="--strip-debug --strip-unneeded"
 $ANDROID_NDK_HOME/toolchains/llvm/prebuilt/$HOST_TAG/bin/llvm-strip $strip_options "$from" -o "$to"

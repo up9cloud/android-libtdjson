@@ -17,6 +17,10 @@ ABIs="x86_64 armeabi-v7a arm64-v8a"
 # make[1]: *** [CMakeFiles/Makefile2:408: CMakeFiles/tdjson.dir/all] Error 2
 # make: *** [Makefile:146: all] Error 2
 for abi in $ABIs; do
-	./build_jni_lib.sh $abi
-	./build_lib.sh $abi
+	./build_abi.sh $abi
+
+	# We could also build libs directly from td repository
+	# ./build_td_abi.sh $abi
+	# mkdir -p $__DIR__/libs/$abi
+	# $__DIR__/strip.sh $__DIR__/build/$abi/libtdjson.so $__DIR__/libs/$abi/libtdjson.so
 done
