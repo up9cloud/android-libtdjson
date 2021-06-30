@@ -15,14 +15,25 @@ Prebuilt [libtdjson](https://github.com/tdlib/td) for Android
 
 ## Installation
 
-> Manually
+> Method 1: Download jniLibs
 
-- Extract jniLibs.tar.gz (from `Releases`) to your ./app/src/main/jniLibs
-- Copy ./app/src/main/java/io/github/up9cloud/td/`JsonClient.java` to your repo
+- Download jniLibs.tar.gz (from `Releases`) and extract it to your ./app/src/main/jniLibs
+- Copy `./app/src/main/java/io/github/up9cloud/td/JsonClient.java` to your repo
 
-> Maven
+> Method 2: Download .aar
 
-- Add those things to your build.gradle
+- Download .aar file (from `Packages`) to your ./app/libs/
+- Add "*.aar" as dependencies to your `build.gradle` file
+
+    ```gradle
+    dependencies {
+        implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+    }
+    ```
+
+> Method 3: Github Maven
+
+- Add those to your `build.gradle` file
 
     ```gradle
     repositories {
@@ -44,8 +55,11 @@ Prebuilt [libtdjson](https://github.com/tdlib/td) for Android
     ```
 
 - Setup ENVs
-  - `export GITHUB_ACTOR=<your github account>`
-  - `export GITHUB_TOKEN=<your github personal access token>`
+
+    ```bash
+    export GITHUB_ACTOR=<your github account>
+    export GITHUB_TOKEN=<your github personal access token>
+    ```
 
 Other refs:
 
