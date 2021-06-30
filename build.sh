@@ -18,11 +18,12 @@ ABIs="x86_64 armeabi-v7a arm64-v8a"
 # make: *** [Makefile:146: all] Error 2
 
 for abi in $ABIs; do
-	# Build both ./jniLibs/ and ./libs/
+	# Build ./jniLibs/ and strip sub folder .so to ./libs/
 	./build_abi.sh $abi
+	$__DIR__/strip.sh $__DIR__/build/jni/$abi/td/libtdjson.so $__DIR__/libs/$abi/libtdjson.so
 
 	# Build td and strip .so to ./libs/
 	# ./build_td_abi.sh $abi
-	# mkdir -p $__DIR__/libs/$abi
-	# $__DIR__/strip.sh $__DIR__/build/$abi/libtdjson.so $__DIR__/libs/$abi/libtdjson.so
+	# mkdir -p $__DIR__/libs/td/$abi
+	# $__DIR__/strip.sh $__DIR__/build/td/$abi/libtdjson.so $__DIR__/libs/$abi/libtdjson.so
 done

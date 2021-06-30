@@ -11,7 +11,7 @@ def getVersionName = { ->
 }
 
 def getArtificatId = { ->
-    return "tdjson"
+    return "td" // For less confusing, set it as the suffix from `package xxx.xxx.xxx.<suffix>`
 }
 
 android {

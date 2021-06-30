@@ -27,13 +27,15 @@ if (CMAKE_CROSSCOMPILING)
   )
   add_custom_command(TARGET tdjson_jni POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory "${root_DIR}/jniLibs/${ANDROID_ABI}"
-    COMMAND ${CMAKE_COMMAND} -E make_directory "${root_DIR}/libs/${ANDROID_ABI}"
     # COMMAND ${CMAKE_COMMAND} -E rename $<TARGET_FILE:tdjson_jni> $<TARGET_FILE:tdjson_jni>.debug
-
+    
     # Options should be same as ./strip.sh
     # DO NOT use option "--strip-sections", it will cause error:
     # E/linker  ... /lib/x86_64/libtdjson.so" has unsupported e_shentsize: 0x0 (expected 0x40)
     COMMAND ${CMAKE_STRIP} --strip-debug --strip-unneeded $<TARGET_FILE:tdjson_jni> -o "${root_DIR}/jniLibs/${ANDROID_ABI}/libtdjson.so"
-    COMMAND ${CMAKE_STRIP} --strip-debug --strip-unneeded $<TARGET_FILE_DIR:tdjson_jni>/td/libtdjson.so -o "${root_DIR}/libs/${ANDROID_ABI}/libtdjson.so"
+
+    # TODO: cmake lakes the event after all built, so we need strip sub targets in shell scripts.
+    # COMMAND ${CMAKE_COMMAND} -E make_directory "${root_DIR}/libs/${ANDROID_ABI}"
+    # COMMAND ${CMAKE_STRIP} --strip-debug --strip-unneeded $<TARGET_FILE_DIR:tdjson_jni>/td/libtdjson.so -o "${root_DIR}/libs/${ANDROID_ABI}/libtdjson.so"
   )
 endif()
