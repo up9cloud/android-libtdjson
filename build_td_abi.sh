@@ -5,11 +5,14 @@ if [ -z "$ANDROID_NDK_HOME" ]; then
 	>&2 echo "ANDROID_NDK_HOME not set"
 	exit 2
 fi
-
+if [ -z "$1" ]; then
+	exit 2
+fi
 abi=$1
 
-mkdir -p $__DIR__/build/$abi
-cd $__DIR__/build/$abi
+mkdir -p $__DIR__/build/td/$abi
+cd $__DIR__/build/td/$abi
+
 OPENSSL_ROOT_DIR="$__DIR__/openssl"
 OPENSSL_CRYPTO_LIBRARY="$OPENSSL_ROOT_DIR/$abi/lib/libcrypto.a"
 OPENSSL_SSL_LIBRARY="$OPENSSL_ROOT_DIR/$abi/lib/libssl.a"

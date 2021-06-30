@@ -21,6 +21,10 @@ jobs:
           allowUpdates: true
           artifacts: "libs.tar.gz,jniLibs.tar.gz"
           token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: gradle/wrapper-validation-action@v1
+      - run: |
+          cp -r ./jniLibs ./app/src/main/
+          ./gradlew assembleRelease publish
       - uses: up9cloud/action-notify@master
         if: cancelled() == false
         env:

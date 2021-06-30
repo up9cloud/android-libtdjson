@@ -4,6 +4,8 @@
 
 Prebuilt libs for Android
 
+> Releases
+
 - libs.tar.gz: pure .so files
 - jniLibs.tar.gz: .so files with jni
 
@@ -25,12 +27,12 @@ $ docker run --rm -it -v `pwd`:/app sstc/android-ndk /bin/bash
 # ./build.sh
 ```
 
-> Cleanup .so files to regenerate, for strip testing
+> Cleanup generated .so files for strip testing
 
 ```bash
 rm -fr \
-    ./build/**/*.so \
-    ./build-jni/**/*.so \
+    ./build/jni/**/*.so \
+    ./build/td/**/*.so \
     ./jniLibs \
     ./libs
 
