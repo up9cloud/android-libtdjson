@@ -32,6 +32,7 @@ $ docker run --rm -it -v `pwd`:/app sstc/android-ndk /bin/bash
 ```bash
 rm -fr \
     ./build/jni/**/*.so \
+    ./build/jni/**/td/*.so \
     ./build/td/**/*.so \
     ./jniLibs \
     ./libs
