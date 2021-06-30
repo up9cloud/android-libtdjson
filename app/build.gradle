@@ -6,8 +6,7 @@ def getGroupId = { ->
 }
 
 def getVersionName = { ->
-    return "0.0.2"
-    // return "1.7.0"
+    return "1.7.0"
 }
 
 def getArtificatId = { ->
@@ -63,7 +62,7 @@ afterEvaluate {
                 name = "GitHubPackages"
                 url = uri("https://maven.pkg.github.com/up9cloud/android-libtdjson")
                 credentials {
-                    username = "up9cloud"
+                    username = System.getenv("GITHUB_ACTOR") ?: "up9cloud"
                     password = System.getenv("GITHUB_TOKEN")
                 }
             }
