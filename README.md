@@ -17,17 +17,17 @@ Prebuilt [libtdjson](https://github.com/tdlib/td) for Android
 
 > Method 1: Download jniLibs
 
-- Download jniLibs.tar.gz (from `Releases`) and extract it to your ./app/src/main/jniLibs
+- Download jniLibs.tar.gz (from `Releases`) and extract it to your ./app/`src/main/jniLibs/`
 - Copy `./app/src/main/java/io/github/up9cloud/td/JsonClient.java` to your repo
 
-> Method 2: Download .aar
+> TODO: Method 2: Download .jar
 
-- Download .aar file (from `Packages`) to your ./app/libs/
-- Add "*.aar" as dependencies to your `build.gradle` file
+- Download .jar file (from `Packages`) to your ./app/`libs/`
+- Be sure "*.jar" is the part of dependencies in your `build.gradle` file
 
     ```gradle
     dependencies {
-        implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+        implementation fileTree(dir: "libs", include: ["*.jar"])
     }
     ```
 
