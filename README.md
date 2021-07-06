@@ -98,3 +98,9 @@ rm -fr \
 ```
 
 - `.travis.yml`: Travis CI has build time limitation (1 hour), and building this lib needs much more than it, so can't build on it.
+
+## License
+
+MIT
+
+- TDLib license, see [td](https://github.com/tdlib/td)
