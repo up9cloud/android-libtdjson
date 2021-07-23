@@ -18,7 +18,7 @@ if [ ! -d "openssl" ]; then
 fi
 
 # Need to generate some files first, see https://github.com/tdlib/td/issues/1077#issuecomment-640056388
-if [ ! -d "prepare_cross_compiling" ]; then
+if [ ! -d "$__DIR__/build/td/prepare_cross_compiling" ]; then
 	mkdir -p $__DIR__/build/td/prepare_cross_compiling
 	cd $__DIR__/build/td/prepare_cross_compiling
 
