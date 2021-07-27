@@ -13,6 +13,15 @@ Prebuilt [libtdjson](https://github.com/tdlib/td) for Android
 
 - maven
 
+> Supported architectures
+
+| Platform         | Architecture |     |
+| ---------------- | ------------ | --- |
+| Android          | armeabi-v7a  | ✅   |
+|                  | arm64-v8a    | ✅   |
+| Android emulator | x86          | ❌   |
+|                  | x86_64       | ✅   |
+
 ## Installation
 
 > Method 1: Download jniLibs
