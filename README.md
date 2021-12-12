@@ -87,7 +87,8 @@ TODO
 
 > Change tdlib version
 
-- `./prepare.sh` change the git checkout version
+- `./prepare.sh`change the git checkout version
+  - Keep in mind, there may not be version tags for tdlib. Have to find the commit hash id for that version.
 - `./app/build.gradle` the getVersionName function
 
 > Build on local, see `.github/workflows/main.yml` also

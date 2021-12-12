@@ -6,7 +6,9 @@ if [ ! -d "td" ]; then
 	cd $__DIR__
 	git clone https://github.com/tdlib/td.git
 	cd td
-	git checkout tags/v1.7.9
+	# https://github.com/tdlib/td/blame/master/CMakeLists.txt
+	# git checkout tags/v1.7.9
+	git checkout 7d41d9eaa58a6e0927806283252dc9e74eda5512
 	cd ..
 fi
 
