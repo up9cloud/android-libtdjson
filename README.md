@@ -58,7 +58,7 @@ Prebuilt [libtdjson](https://github.com/tdlib/td) for Android
         }
     }
     dependencies {
-        // modify the version, e.q. 1.7.0
+        // Modify the version, see release
         implementation 'io.github.up9cloud:td:<version>'
     }
     ```
@@ -84,6 +84,11 @@ TODO
 TODO
 
 ## Dev memo
+
+> Change tdlib version
+
+- `./prepare.sh` change the git checkout version
+- `./app/build.gradle` the getVersionName function
 
 > Build on local, see `.github/workflows/main.yml` also
 

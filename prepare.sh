@@ -1,12 +1,12 @@
 #!/bin/bash -e
 
-__DIR__="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+__DIR__="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 
 if [ ! -d "td" ]; then
 	cd $__DIR__
 	git clone https://github.com/tdlib/td.git
 	cd td
-	git checkout tags/v1.7.0
+	git checkout tags/v1.7.9
 	cd ..
 fi
 
