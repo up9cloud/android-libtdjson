@@ -85,11 +85,13 @@ TODO
 
 ## Dev memo
 
-> Change tdlib version
+> Bump the version of tdlib
 
-- `./prepare.sh`change the git checkout version
+- Change the git checkout version in `./prepare.sh`
   - Keep in mind, there may not be version tags for tdlib. Have to find the commit hash id for that version.
-- `./app/build.gradle` the getVersionName function
+- Modify the getVersionName function in `./app/build.gradle`
+- Commit and add tag
+- Push with tags
 
 > Build on local, see `.github/workflows/main.yml` also
 

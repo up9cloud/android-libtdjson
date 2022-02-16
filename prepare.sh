@@ -6,9 +6,13 @@ if [ ! -d "td" ]; then
 	cd $__DIR__
 	git clone https://github.com/tdlib/td.git
 	cd td
-	# https://github.com/tdlib/td/blame/master/CMakeLists.txt
-	# git checkout tags/v1.7.9
-	git checkout 7d41d9eaa58a6e0927806283252dc9e74eda5512
+	# How to get the hash if there is no version tag:
+	# - Goto https://github.com/tdlib/td/blame/master/CMakeLists.txt
+	# - Check the line of `project(TDLib VERSION...
+	# - Click left commit link
+	# - Copy and paste the commit hash, e.q. git checkout <hash>
+	# git checkout tags/v1.8.1
+	git checkout 92c2a9c4e521df720abeaa9872e1c2b797d5c93f
 	cd ..
 fi
 
