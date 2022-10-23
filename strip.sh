@@ -1,8 +1,9 @@
 #!/bin/bash -e
 
-__DIR__="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+__DIR__="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+
 if [ -z "$ANDROID_NDK_HOME" ]; then
-	>&2 echo "ANDROID_NDK_HOME not set"
+	echo >&2 "ANDROID_NDK_HOME not set"
 	exit 2
 fi
 if [ -z "$1" ]; then
@@ -15,19 +16,20 @@ fi
 to=$2
 
 # https://developer.android.com/ndk/guides/other_build_systems#overview
-case `uname -s` in
-	Darwin)
-		HOST_TAG=darwin-x86_64
+case $(uname -s) in
+Darwin)
+	# Have to x86_64, evne if we're on the M1, see https://developer.android.com/ndk/guides/other_build_systems#overview
+	HOST_TAG=darwin-x86_64
 	;;
-	Windows)
-		if [ `uname -m` = "x86_64" ]; then
-			HOST_TAG=windows-x86_64
-		else
-			HOST_TAG=windows
-		fi
+Windows)
+	if [ $(uname -m) = "x86_64" ]; then
+		HOST_TAG=windows-x86_64
+	else
+		HOST_TAG=windows
+	fi
 	;;
-	Linux|*)
-		HOST_TAG=linux-x86_64
+Linux | *)
+	HOST_TAG=linux-x86_64
 	;;
 esac
 

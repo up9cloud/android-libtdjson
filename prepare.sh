@@ -11,8 +11,8 @@ if [ ! -d "td" ]; then
 	# - Check the line of `project(TDLib VERSION...
 	# - Click left commit link
 	# - Copy and paste the commit hash, e.q. git checkout <hash>
-	# git checkout tags/v1.8.1
-	git checkout 92c2a9c4e521df720abeaa9872e1c2b797d5c93f
+	# git checkout tags/v1.8.7
+	git checkout a7a17b34b3c8fd3f7f6295f152746beb68f34d83
 	cd ..
 fi
 

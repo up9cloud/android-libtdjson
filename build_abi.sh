@@ -1,8 +1,8 @@
 #!/bin/bash -e
 
-__DIR__="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+__DIR__="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 if [ -z "$ANDROID_NDK_HOME" ]; then
-	>&2 echo "ANDROID_NDK_HOME not set"
+	echo >&2 "ANDROID_NDK_HOME not set"
 	exit 2
 fi
 if [ -z "$1" ]; then

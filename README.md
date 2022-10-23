@@ -90,7 +90,7 @@ TODO
 - Change the git checkout version in `./prepare.sh`
   - Keep in mind, there may not be version tags for tdlib. Have to find the commit hash id for that version.
 - Modify the getVersionName function in `./app/build.gradle`
-- Commit and add tag
+- Commit and add tag (`git tag vx.x.x`)
 - Push with tags
 
 > Build on local, see `.github/workflows/main.yml` also

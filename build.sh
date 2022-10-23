@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-__DIR__="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+__DIR__="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 
 # Idea from https://github.com/tdlib/td/issues/77#issuecomment-640719893
 cd $__DIR__
