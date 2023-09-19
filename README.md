@@ -4,6 +4,8 @@
 
 Prebuilt [libtdjson](https://github.com/tdlib/td) for Android
 
+`Version` tag is same as the version of tdlib
+
 > Releases
 
 - libs.tar.gz: .so files without jni
@@ -19,7 +21,7 @@ Prebuilt [libtdjson](https://github.com/tdlib/td) for Android
 | ---------------- | ------------ | --- |
 | Android          | armeabi-v7a  | ✅   |
 |                  | arm64-v8a    | ✅   |
-| Android emulator | x86          | ❌   |
+| Android emulator | x86          | ✅   |
 |                  | x86_64       | ✅   |
 
 ## Installation
@@ -87,11 +89,12 @@ TODO
 
 > Bump the version of tdlib
 
-- Change the git checkout version in `./prepare.sh`
-  - Keep in mind, there may not be version tags for tdlib. Have to find the commit hash id for that version.
+- Modify the version for git checkout in `./prepare.sh`
+  - Keep in mind, there may not be version tags for tdlib. So have to find the hash id of the commit for that version.
 - Modify the getVersionName function in `./app/build.gradle`
-- Commit and add tag (`git tag vx.x.x`)
+- Commit and add tag (`git tag vx.x.x`, same as the version of tdlib)
 - Push with tags
+- Wait for CI task
 
 > Build on local, see `.github/workflows/main.yml` also
 
