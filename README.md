@@ -93,7 +93,7 @@ TODO
   - Keep in mind, there may not be version tags for tdlib. So have to find the hash id of the commit for that version.
 - Modify the getVersionName function in `./app/build.gradle`
 - Commit and add tag (`git tag vx.x.x`, same as the version of tdlib)
-- Push with tags
+- Push with tags (`git push && git push --tags`)
 - Wait for CI task
 
 > Build on local, see `.github/workflows/main.yml` also
