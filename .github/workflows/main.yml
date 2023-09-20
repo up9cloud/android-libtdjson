@@ -27,6 +27,11 @@ jobs:
       - uses: gradle/wrapper-validation-action@v1
       - run: |
           cp -r ./jniLibs ./app/src/main/
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
       - run: |
           ./gradlew assembleRelease publish
       - uses: up9cloud/action-notify@master
