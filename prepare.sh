@@ -9,11 +9,11 @@ if [ ! -d "td" ]; then
 	# How to get the hash if there is no version tag:
 	# - Goto https://github.com/tdlib/td/blame/master/CMakeLists.txt
 	# - Check the version from the line: `project(TDLib VERSION <version>...`
-	# - Copy version and paste to:
-	# git checkout tags/v1.8.23
+	# - Copy version and paste to following:
+	# git checkout tags/v1.8.24
 	# - Click the commit link
-	# - Copy and paste the commit hash from the browser url link, e.q. https://github.com/tdlib/td/commit/...
-	git checkout 27c3eaeb4964bd5f18d8488e354abde1a4383e49
+	# - Copy the commit hash from the browser url link (e.q. https://github.com/tdlib/td/commit/<hash>) and paste to following:
+	git checkout c5c55092dd61b9eb15d6bbfd0f02c04c593450e7
 	cd ..
 fi
 
