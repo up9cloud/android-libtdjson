@@ -10,10 +10,10 @@ if [ ! -d "td" ]; then
 	# - Goto https://github.com/tdlib/td/blame/master/CMakeLists.txt
 	# - Check the version from the line: `project(TDLib VERSION <version>...`
 	# - Copy version and paste to following:
-	# git checkout tags/v1.8.24
+	# git checkout tags/v1.8.25
 	# - Click the commit link
 	# - Copy the commit hash from the browser url link (e.q. https://github.com/tdlib/td/commit/<hash>) and paste to following:
-	git checkout c5c55092dd61b9eb15d6bbfd0f02c04c593450e7
+	git checkout d93a99e3351db82573d765ce4f5e84714c277518
 	cd ..
 fi
 
