@@ -32,7 +32,7 @@ if (CMAKE_CROSSCOMPILING)
     # E/linker  ... /lib/x86_64/libtdjson.so" has unsupported e_shentsize: 0x0 (expected 0x40)
     COMMAND ${CMAKE_STRIP} --strip-debug --strip-unneeded $<TARGET_FILE:tdjson_android> -o "${root_DIR}/jniLibs/${ANDROID_ABI}/libtdjson.so"
   )
-  # TODO: don't know how to assgin target of sub folder, so strip in build.sh instead here.
+  # TODO: don't know how to assign target of sub folder, so strip in build.sh instead here.
   # add_custom_command(TARGET ??? POST_BUILD
   #   COMMAND ${CMAKE_COMMAND} -E rename $<TARGET_FILE:tdjson_android> $<TARGET_FILE:tdjson_android>.debug
   #   COMMAND ${CMAKE_COMMAND} -E make_directory "${root_DIR}/libs/${ANDROID_ABI}"

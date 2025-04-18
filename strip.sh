@@ -18,7 +18,7 @@ to=$2
 # https://developer.android.com/ndk/guides/other_build_systems#overview
 case $(uname -s) in
 Darwin)
-	# Have to x86_64, evne if we're on the M1, see https://developer.android.com/ndk/guides/other_build_systems#overview
+	# Must be x86_64, even if we're on the M1, see https://developer.android.com/ndk/guides/other_build_systems#overview
 	HOST_TAG=darwin-x86_64
 	;;
 Windows)

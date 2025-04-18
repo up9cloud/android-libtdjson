@@ -7,24 +7,26 @@ def getGroupId = { ->
 }
 
 def getVersionName = { ->
-    return "1.8.31"
+    return "1.8.47"
 }
 
-def getArtificatId = { ->
+def getArtifactId = { ->
     return "td" // For less confusing, set it as the suffix from `package xxx.xxx.xxx.<suffix>`
 }
 
 android {
-    ndkVersion "22.1.7171670"
-    compileSdkVersion 30
-    namespace getGroupId()
+    ndkVersion = "28.0.13004108"
+    compileSdkVersion = 35
+    namespace = getGroupId()
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName getVersionName()
-        archivesBaseName = getArtificatId()
+        base {
+            archivesName = getArtifactId()
+        }
     }
     buildTypes {
         release {
@@ -47,7 +49,7 @@ android {
     //     externalNativeBuild {
     //         cmake {
     //             arguments "-CMAKE_BUILD_TYPE=MinSizeRel", "-DANDROID_TOOLCHAIN=clang", "-DANDROID_STL=c++_static"
-    //             abiFilters  'arm64-v8a', 'armeabi-v7a', 'x86_64'
+    //             abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86_64'
     //         }
     //     }
     // }
@@ -69,10 +71,10 @@ afterEvaluate {
         }
         publications {
             gpr(MavenPublication) {
-                from components.release
-                groupId getGroupId()
-                artifactId getArtificatId()
-                version getVersionName()
+                from = components.release
+                groupId = getGroupId()
+                artifactId = getArtifactId()
+                version = getVersionName()
             }
         }
     }
