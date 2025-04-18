@@ -71,7 +71,6 @@ afterEvaluate {
         }
         publications {
             gpr(MavenPublication) {
-                from = components.release
                 groupId = getGroupId()
                 artifactId = getArtifactId()
                 version = getVersionName()

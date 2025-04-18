@@ -97,6 +97,13 @@ Other refs:
   docker run --rm -v $(pwd):/app sstc/android-ndk ./gradlew wrapper --gradle-version latest
   ```
 
+- manually publish maven to github
+
+  ```bash
+  # The GITHUB_TOKEN must have `write:packages` permission
+  docker run --rm -v $(pwd):/app -e GITHUB_TOKEN=${GITHUB_TOKEN} sstc/android-ndk ./gradlew assembleRelease publish
+  ```
+
 - `.travis.yml`: Travis CI has build time limitation (1 hour), and building this lib needs much more than it, so can't build on it.
 
 ## License
