@@ -71,6 +71,8 @@ afterEvaluate {
         }
         publications {
             gpr(MavenPublication) {
+                // https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry#example-using-gradle-groovy-for-a-single-package-in-a-repository
+                from(components.release)
                 groupId = getGroupId()
                 artifactId = getArtifactId()
                 version = getVersionName()
